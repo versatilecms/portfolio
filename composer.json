@@ -1,0 +1,23 @@
+{
+    "name": "versatilecms/portfolio",
+    "license": "MIT",
+    "authors": [
+      {
+          "name": "Fábio Assunção",
+          "email": "fabio23gt@gmail.com"
+      }
+    ],
+    "autoload": {
+        "classmap": [],
+        "psr-4": {
+            "Versatile\\Portfolio\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Versatile\\Portfolio\\Providers\\PortfolioServiceProvider"
+            ]
+        }
+    }
+}
