@@ -16,7 +16,7 @@ class PortfolioDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->seed('CategoryBread');
-        $this->seed('PortfolioBread');
+        $this->seed('CategoriesTableSeeder');
+        $this->seed('PortfolioTableSeeder');
     }
 }

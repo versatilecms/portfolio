@@ -3,7 +3,11 @@
 namespace Versatile\Portfolio\Providers;
 
 use Versatile\Portfolio\Commands;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+use Versatile\Core\Policies\BasePolicy;
+use Versatile\Portfolio\Portfolio;
+use Versatile\Portfolio\PortfolioCategories;
 
 class PortfolioServiceProvider extends ServiceProvider
 {
@@ -11,6 +15,16 @@ class PortfolioServiceProvider extends ServiceProvider
      * Our root directory for this package to make traversal easier
      */
     protected $packagePath = __DIR__ . '/../../';
+
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        Portfolio::class  => BasePolicy::class,
+        PortfolioCategories::class => BasePolicy::class,
+    ];
 
     /**
      * Bootstrap the application services
@@ -23,6 +37,8 @@ class PortfolioServiceProvider extends ServiceProvider
         $this->strapViews();
         $this->strapMigrations();
         $this->strapCommands();
+
+        $this->registerPolicies();
     }
 
     /**

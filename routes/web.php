@@ -12,3 +12,12 @@ Route::group([
     Route::get('/', ['uses' => 'PortfolioController@getPosts', 'as' => 'list']);
     Route::get('{slug}', ['uses' => 'PortfolioController@getPost', 'as' => 'post']);
 });
+
+Route::group([
+    'prefix' => 'admin/portfolio/',
+    'middleware' => ['web', 'admin.user'],
+    'namespace' => '\Versatile\Portfolio\Http\Controllers',
+    'as' => 'versatile.'
+], function () {
+    Versatile::resource('portfolio', 'PortfolioController');
+});
